@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: net-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: net-app
@@ -11,11 +11,10 @@ spec:
     metadata:
       labels:
         app: net-app
-        version: v-BUILDNUM
     spec:
       containers:
       - name: net-app
-        image: ACRURL/net-app:v-BUILDNUM
+        image: hclcloudnativeacr.azurecr.io/net-app
         ports:
         - containerPort: 80
       #imagePullSecrets:
